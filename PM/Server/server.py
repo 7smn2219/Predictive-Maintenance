@@ -35,10 +35,10 @@ i , j = 0, 0
 # Initialize an empty list to store the results
 results = []
 for folder in [ok,anomaly1, anomaly2]:
-    for filename in os.listdir(os.path.join(os.getcwd(),"/app/data/Dataset/demo",folder)):
+    for filename in os.listdir(os.path.join(os.getcwd(),"/app/data/demo",folder)):
         print(filename)
         
-        audio, sr = librosa.load(os.path.join("/app/data/Dataset/demo/", folder,filename))
+        audio, sr = librosa.load(os.path.join("/app/data/demo/", folder,filename))
         print("librosa loaded")
 
         features = extract_features(audio, sr=sr)
