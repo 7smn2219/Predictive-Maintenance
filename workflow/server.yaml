@@ -11,7 +11,7 @@ metadata:
     artifacts.ai.sap.com/model.kind: "model"
   labels:
     scenarios.ai.sap.com/id: "learning-datalines-servertrain"
-    ai.sap.com/version: "1.0"
+    ai.sap.com/version: "2.0"
 spec:
   imagePullSecrets:
     - name: swapnil
@@ -31,7 +31,7 @@ spec:
             path: /app/model/
      
       container:
-        image: docker.io/7swap/pmserve:01
+        image: docker.io/7swap/pmserve:11
         command: ["/bin/sh", "-c"]
         args:
           - "ls /app/src && ls /app/data/Dataset/demo && python /app/src/server.py"
