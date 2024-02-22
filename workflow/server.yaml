@@ -31,7 +31,7 @@ spec:
             path: /app/model/
      
       container:
-        image: docker.io/swapnil/pm:01
+        image: docker.io/swapnil/pmserve:01
         command: ["/bin/sh", "-c"]
         args:
           - "ls /app/src && ls /app/data/Dataset/demo && python /app/src/server.py"
