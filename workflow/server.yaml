@@ -3,7 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: data-soundservertrain
   annotations:
-    scenarios.ai.sap.com/description: "DataIntroUpdated"
+    scenarios.ai.sap.com/description: "Swao DataIntroUpdated"
     scenarios.ai.sap.com/name: "pm-data-servertrain"
     executables.ai.sap.com/description: "Ingesting data"
     executables.ai.sap.com/name: "pm-servertrain"
