@@ -56,5 +56,5 @@ test_loss, test_acc = model.evaluate(X_test, y_test)
 print(f"Test Data Score {test_acc}")
 
 import pickle
-MODEL_PATH = '/model/model.pkl'
+MODEL_PATH = '/app/model/model.pkl'
 pickle.dump(model, open(MODEL_PATH, 'wb'))
