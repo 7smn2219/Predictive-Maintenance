@@ -29,7 +29,7 @@ labels = le.fit_transform([ok,anomaly1, anomaly2])
 # Load the saved model
 model = pickle.load(open(MODEL_PATH, 'rb'))
 
-
+print("Uploading to Datasphere ... ")
 
 i , j = 0, 0
 # Initialize an empty list to store the results
@@ -69,7 +69,7 @@ results = pd.DataFrame(results)
 # results.to_csv("results.csv")
 
 
-print("dataframe created")
+print("Uploading to Datasphere ... ")
 # UPLODING DATA TO DATASPHERE
 conn = dbapi
 conn = dbapi.connect(
