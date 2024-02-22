@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: data-soundservertrain
+  annotations:
+    scenarios.ai.sap.com/description: "DataIntroUpdated"
+    scenarios.ai.sap.com/name: "pm-data-servertrain"
+    executables.ai.sap.com/description: "Ingesting data"
+    executables.ai.sap.com/name: "pm-servertrain"
+    artifacts.ai.sap.com/dataset.kind: "dataset"
+    artifacts.ai.sap.com/model.kind: "model"
+  labels:
+    scenarios.ai.sap.com/id: "learning-datalines-servertrain"
+    ai.sap.com/version: "1.0"
+spec:
+  imagePullSecrets:
+    - name: predictive-maintenance
+  entrypoint: pmpipeline
+  arguments: {}
+  templates:
+    - name: pmpipeline
+      steps:
+        - - name: pmpredictor
+            template: pmcodeblock
+    - name: pmcodeblock
+      inputs:
+        artifacts:
+          - name: pmdataset
+            path: /app/data/
+          - name: pmmodel
+            path: /app/model/
+     
+      container:
+        image: docker.io/swapnil/pm:01
+        command: ["/bin/sh", "-c"]
+        args:
+          - "ls /app/src && ls /app/data/Dataset/demo && python /app/src/server.py"
