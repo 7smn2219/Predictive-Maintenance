@@ -1,0 +1,6 @@
+pandas
+tensorflow
+numpy
+librosa
+scikit-learn  
+hdbcli
