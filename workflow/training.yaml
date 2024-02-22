@@ -3,7 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: sound-train
   annotations:
-    scenarios.ai.sap.com/description: "SAP developers tutorial scenario"
+    scenarios.ai.sap.com/description: "Swao Predictive maintenance"
     scenarios.ai.sap.com/name: "sound-scenario"
     executables.ai.sap.com/description: "CNN for acoustic scene classification"
     executables.ai.sap.com/name: "sound-train-exec"
