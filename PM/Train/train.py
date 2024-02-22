@@ -15,10 +15,10 @@ print("Loading files...")
 # Load wav files from folders, extract labels from folder names
 data, labels = [], []
 for folder in [ok,anomaly1, anomaly2]:
-    for filename in os.listdir(os.path.join(os.getcwd(),"/app/data/Dataset/demo",folder)):
+    for filename in os.listdir(os.path.join(os.getcwd(),"/app/data/demo",folder)):
         print("in for loop with : ",filename)
 
-        audio, sr = librosa.load(os.path.join("/app/data/Dataset/demo/", folder,filename))
+        audio, sr = librosa.load(os.path.join("/app/data/demo/", folder,filename))
 
         data.append(audio)
         labels.append(folder)
