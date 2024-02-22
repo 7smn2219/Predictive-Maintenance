@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: sound-train
+  annotations:
+    scenarios.ai.sap.com/description: "SAP developers tutorial scenario"
+    scenarios.ai.sap.com/name: "sound-scenario1401"
+    executables.ai.sap.com/description: "CNN for acoustic scene classification"
+    executables.ai.sap.com/name: "sound-train-exec1401"
+    artifacts.ai.sap.com/data.kind: "dataset"
+    artifacts.ai.sap.com/model.kind: "model"
+  labels:
+    scenarios.ai.sap.com/id: "sound-scenario1401"
+    executables.ai.sap.com/id: "sound-train1401"
+    ai.sap.com/version: "1.0"
+spec:
+  imagePullSecrets:
+    - name: predictive-maintenance
+  entrypoint: sound-training
+  templates:
+    - name: sound-training
+      metadata:
+        labels:
+          ai.sap.com/resourcePlan: starter
+      inputs:
+        artifacts:
+          - name: sound-data
+            path: /app/src/
+      outputs:
+        artifacts:
+          - name: sound-model
+            path: /app/model
+            globalName: sound-model
+            archive:
+              none: {}
+      container:
+        image: docker.io/samikshamahore/pm:01
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-c"]
+        args:
+          - "python /app/src/train.py"
