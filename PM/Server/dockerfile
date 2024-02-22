@@ -1,0 +1,14 @@
+FROM python:3.11.4
+# Creates directory within your Docker image
+
+RUN mkdir -p /app/src/
+RUN mkdir -p /app/model/
+RUN mkdir -p /app/data/
+
+COPY servertrain.py /app/src/
+COPY requirements.txt /app/src/
+RUN pip3 install -r /app/src/requirements.txt
+
+# Enable permission to execute anything inside the folder app
+RUN chgrp -R 65534 /app && \
+    chmod -R 777 /app
