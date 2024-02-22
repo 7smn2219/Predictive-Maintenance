@@ -31,7 +31,7 @@ spec:
             path: /app/model/
      
       container:
-        image: docker.io/7swap/pmserve:11
+        image: docker.io/7swap/pm:11
         command: ["/bin/sh", "-c"]
         args:
           - "ls /app/src && ls /app/data/Dataset/demo && python /app/src/server.py"
