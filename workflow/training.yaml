@@ -34,7 +34,7 @@ spec:
             archive:
               none: {}
       container:
-        image: docker.io/samikshamahore/pm:01
+        image: docker.io/swapnil/pm:01
         imagePullPolicy: Always
         command: ["/bin/sh", "-c"]
         args:
