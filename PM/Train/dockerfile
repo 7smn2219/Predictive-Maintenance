@@ -1,0 +1,21 @@
+FROM python:3.11.4
+# Creates directory within your Docker image
+RUN mkdir -m 777 /tmp/NUMBA_CACHE_DIR /tmp/MPLCONFIGDIR
+ENV NUMBA_CACHE_DIR=/tmp/NUMBA_CACHE_DIR/
+ENV MPLCONFIGDIR=/tmp/MPLCONFIGDIR/
+
+RUN export NUMBA_CACHE_DIR=/tmp/
+
+RUN pip3 install --upgrade pip
+RUN mkdir -p /app/src/
+RUN mkdir -p /app/model/
+RUN mkdir -p /app/data/
+  
+COPY maintrain.py /app/src/
+COPY requirements.txt /app/src/
+  
+RUN pip3 install -r /app/src/requirements.txt
+  
+# Enable permission to execute anything inside the folder app
+RUN chgrp -R 65534 /app && \
+    chmod -R 777 /app
