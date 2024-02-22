@@ -14,7 +14,7 @@ metadata:
     ai.sap.com/version: "1.0"
 spec:
   imagePullSecrets:
-    - name: predictive-maintenance
+    - name: swapnil
   entrypoint: pmpipeline
   arguments: {}
   templates:
